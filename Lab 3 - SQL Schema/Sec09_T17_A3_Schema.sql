@@ -44,6 +44,25 @@ CREATE TABLE User (
   password VARCHAR2(100) NOT NULL
 );
 
+CREATE TABLE Review (
+  review_id NUMBER PRIMARY KEY, 
+  used_id NUMBER, 
+  film_id NUMBER, 
+  description VARCHAR2(500),
+  rating NUMBER, 
+  date DATE,
+  FOREIGN KEY (user_id) REFERENCES User(user_id),
+  FOREIGN KEY (film_id) REFERENCES Film(film_id)
+);
+
+CREATE TABLE Studio (
+  studio_id NUMBER PRIMARY KEY,
+  name VARCHAR2(100) NOT NULL,
+  owner VARCHAR2(50),
+  location VARCHAR2(200),
+  credits VARCHAR2(800)
+);
+
 CREATE TABLE Awards (
   award_id NUMBER PRIMARY KEY, 
   name VARCHAR2(100) NOT NULL,
