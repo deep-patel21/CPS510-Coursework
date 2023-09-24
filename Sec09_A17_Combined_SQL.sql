@@ -51,7 +51,7 @@ CREATE TABLE Review (
   review_id NUMBER PRIMARY KEY, 
   user_id NUMBER, 
   film_id NUMBER, 
-  theDescription VARCHAR2(500),
+  theDescription CLOB,
   rating NUMBER, 
   theDate DATE,
   FOREIGN KEY (user_id) REFERENCES TheUser(user_id),
@@ -261,6 +261,26 @@ VALUES (3, "Wade", TO_DATE('2012-01-11', 'YYYY-MM-DD'));
 
 INSERT INTO Receiver(receiver_id, theName, theDate)
 VALUES (4, "Interstellar", TO_DATE('2023-02-17', 'YYYY-MM-DD'));
+
+---------------------------
+-- Sample SELECT Queries --
+---------------------------
+
+SELECT *
+FROM Film;
+
+SELECT title, runtime, release_year
+FROM Film
+WHERE runtime >= 170;
+
+SELECT title
+From Film
+WHERE director_id = 1;
+
+SELECT first_name, last_name
+FROM Actor
+WHERE nationality = "American";
+
 
 
 
