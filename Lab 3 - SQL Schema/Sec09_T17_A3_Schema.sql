@@ -5,7 +5,7 @@ CREATE TABLE Film (
   release_year NUMBER, 
   director_id NUMBER,
   FOREIGN KEY (director_id) REFERENCES Director(director_id),
-  cast VARCHAR2(1000)
+  cast VARCHAR2(1000) NOT NULL
 );
 
 CREATE TABLE Actor (
