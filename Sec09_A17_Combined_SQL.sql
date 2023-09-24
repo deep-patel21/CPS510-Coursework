@@ -8,7 +8,7 @@ CREATE TABLE Film (
   release_year NUMBER, 
   director_id NUMBER,
   FOREIGN KEY (director_id) REFERENCES Director(director_id),
-  cast VARCHAR2(1000) NOT NULL
+  theCast VARCHAR2(1000) NOT NULL
 );
 
 CREATE TABLE Actor (
@@ -142,13 +142,13 @@ CREATE TABLE Review_Rates_Film (
 ----------------------------
 
 -- Insert Details into Film Table
-INSERT INTO Film(film_id, title, runtime, release_year, director_id, cast)
+INSERT INTO Film(film_id, title, runtime, release_year, director_id, theCast)
 VALUES (1, 'Oppenheimer', 180, 2023, 1, 'Cillian Murphy, Robert Downey Jr., Matt Damon');
 
-INSERT INTO Film(film_id, title, runtime, release_year, director_id, cast)
+INSERT INTO Film(film_id, title, runtime, release_year, director_id, theCast)
 VALUES (2, 'Terminator 2: Judgement Day', 137, 1991, 2, 'Arnold Schwarznegger, Linda Hamilton, Edward Furlong');
 
-INSERT INTO Film(film_id, title, runtime, release_year, director_id, cast)
+INSERT INTO Film(film_id, title, runtime, release_year, director_id, theCast)
 VALUES (3, 'Mission: Impossible - Ghost Protocol', 172, 2011, 3, 'Tom Cruise, Jeremy Renner, Simon Pegg');
 
 -- Insert Details into Actor Table
