@@ -51,10 +51,10 @@ CREATE TABLE Review (
   review_id NUMBER PRIMARY KEY, 
   user_id NUMBER, 
   film_id NUMBER, 
-  description VARCHAR2(500),
+  theDescription VARCHAR2(500),
   rating NUMBER, 
-  date DATE,
-  FOREIGN KEY (user_id) REFERENCES User(user_id),
+  theDate DATE,
+  FOREIGN KEY (user_id) REFERENCES TheUser(user_id),
   FOREIGN KEY (film_id) REFERENCES Film(film_id)
 );
 
@@ -68,9 +68,9 @@ CREATE TABLE Studio (
 
 CREATE TABLE Awards (
   award_id NUMBER PRIMARY KEY, 
-  name VARCHAR2(100) NOT NULL,
+  theName VARCHAR2(100) NOT NULL,
   presenter VARCHAR2(100) NOT NULL,
-  year NUMBER,
+  year_of_win NUMBER,
   winner_id NUMBER, 
   winner_type VARCHAR2(20) CHECK (winner_type IN ('Person', 'Film')),
   FOREIGN KEY (winner_id, winner_type) REFERENCES PersonFilm(person_film_id, person_film_type)
@@ -224,6 +224,27 @@ INSERT INTO Studio(studio_id, name, owner, location, credits)
 VALUES (3, 'Paramount Pictures', 'Brian Robbins', 'Los Angeles, California', 'Scream, Shrek Forever After, Top Gun: Maverick');
 
 -- Insert Details into Awards Tables
+INSERT INTO Awards(award_id, theName, presenter, year_of_win, winner_id, winner_type)
+VALUES (1, 'Best Film', 'Academy Awards', '2022', 1, 'Film');
+
+INSERT INTO Awards(award_id, theName, presenter, year_of_win, winner_id, winner_type)
+VALUES (2, 'Best Actor', 'Oscars Ceremony', '2023', 2, 'Person');
+
+INSERT INTO Awards(award_id, theName, presenter, year_of_win, winner_id, winner_type)
+VALUES (3, 'Best Director', 'Academy Awards', '2014', 3, 'Person');
+
+-- Insert Details into Review Table
+INSERT INTO Review(review_id, user_id, film_id, theDescription, rating, theDate)
+VALUES (1, 3, 2, "This movie was action packed with my favorite action hero Arnold!", 4, TO_DATE('2023-07-03', 'YYYY-MM-DD'));
+
+INSERT INTO Review(review_id, user_id, film_id, theDescription, rating, theDate)
+VALUES (2, 2, 3, "The iconic run of Tom Cruise made this movie epic to watch.", 4, TO_DATE('2023-05-16', 'YYYY-MM-DD'));
+
+INSERT INTO Review(review_id, user_id, film_id, theDescription, rating, theDate)
+VALUES (3, 1, 1, "Amazing cinematics from Nolan once again. Pristine performance!.", 5, TO_DATE('2023-06-21', 'YYYY-MM-DD'));
+
+
+
 
 
 
