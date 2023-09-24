@@ -142,13 +142,13 @@ CREATE TABLE Review_Rates_Film (
 ----------------------------
 
 -- Insert Details into Movie Table
-INSERT INTO Movie (movie_id, title, runtime, release_year, director_id, cast)
+INSERT INTO Film(movie_id, title, runtime, release_year, director_id, cast)
 VALUES (1, 'Oppenheimer', 180, 2023, 1, 'Cillian Murphy, Robert Downey Jr., Matt Damon');
 
-INSERT INTO Movie (movie_id, title, runtime, release_year, director_id, cast)
+INSERT INTO Film(movie_id, title, runtime, release_year, director_id, cast)
 VALUES (2, 'Terminator 2: Judgement Day', 137, 1991, 2, 'Arnold Schwarznegger, Linda Hamilton, Edward Furlong');
 
-INSERT INTO Movie (movie_id, title, runtime, release_year, director_id, cast)
+INSERT INTO Film(movie_id, title, runtime, release_year, director_id, cast)
 VALUES (3, 'Mission: Impossible - Ghost Protocol', 172, 2011, 3, 'Tom Cruise, Jeremy Renner, Simon Pegg');
 
 -- Insert Details into Actor Table
