@@ -49,7 +49,7 @@ CREATE TABLE TheUser (
 
 CREATE TABLE Review (
   review_id NUMBER PRIMARY KEY, 
-  used_id NUMBER, 
+  user_id NUMBER, 
   film_id NUMBER, 
   description VARCHAR2(500),
   rating NUMBER, 
@@ -75,6 +75,7 @@ CREATE TABLE Awards (
   winner_type VARCHAR2(20) CHECK (winner_type IN ('Person', 'Film')),
   FOREIGN KEY (winner_id, winner_type) REFERENCES PersonFilm(person_film_id, person_film_type)
 );
+
 ------------------------------------
 -- Create Tables of Relationships --
 ------------------------------------
@@ -119,7 +120,7 @@ CREATE TABLE Awards_Given_To_Film (
     FOREIGN KEY (film_id) REFERENCES Film(film_id)
 );
 
-CREATE TABLE User_Creates_Review (
+CREATE TABLE TheUser_Creates_Review (
     user_id NUMBER NOT NULL,
     review_id NUMBER NOT NULL,
     PRIMARY KEY (user_id, review_id),
@@ -198,6 +199,35 @@ VALUES (2, 'Edward', 'Furlong', TO_DATE('1977-08-02', 'YYYY-MM-DD'), 'American',
 
 INSERT INTO Producer (producer_id, first_name, last_name, birthdate, nationality, filmography)
 VALUES (3, 'Bryan', 'Burk', TO_DATE('1968-12-30', 'YYYY-MM-DD'), 'American', 'Mission: Impossible - Rogue Nation, Star Trek Into Darkness, The Cloverfield Paradox');
+
+-- Insert Details into User Table
+INSERT INTO TheUser(user_id, first_name, last_name, username, email, password)
+VALUES (1, 'Anmol', 'Panchal', 'IwasHuman', 'anmol.panchal@torontomu.ca', 'Admin1');
+
+INSERT INTO TheUser(user_id, first_name, last_name, username, email, password)
+VALUES (2, 'Deep', 'Patel', 'Deep Studios', 'deep.c.patel@torontomu.ca', 'Admin2');
+
+INSERT INTO TheUser(user_id, first_name, last_name, username, email, password)
+VALUES (3, 'Aryan', 'Patel', 'Rayna', 'aryan.patel@torontomu.ca', 'Admin3');
+
+INSERT INTO TheUser(user_id, first_name, last_name, username, email, password)
+VALUES (4, 'John', 'Doe', 'JohnDoe123', 'john.doe@gmail.com', 'ilovemovies');
+
+-- Insert Details into Studio Tables
+INSERT INTO Studio(studio_id, name, owner, location, credits)
+VALUES (1, 'Universal Studios', 'Mark Woodbury', 'Universal City, California', 'Fast X, The Super Mario Bros, Jurrasic World: Dominion');
+
+INSERT INTO Studio(studio_id, name, owner, location, credits)
+VALUES (2, 'Warner Bros', 'David Zaslav', 'Burbank, California', 'Tenet, Inception, Shazam');
+
+INSERT INTO Studio(studio_id, name, owner, location, credits)
+VALUES (3, 'Paramount Pictures', 'Brian Robbins', 'Los Angeles, California', 'Scream, Shrek Forever After, Top Gun: Maverick');
+
+-- Insert Details into Awards Tables
+
+
+
+
 
 
 
