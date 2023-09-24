@@ -224,13 +224,13 @@ INSERT INTO Studio(studio_id, name, owner, location, credits)
 VALUES (3, 'Paramount Pictures', 'Brian Robbins', 'Los Angeles, California', 'Scream, Shrek Forever After, Top Gun: Maverick');
 
 -- Insert Details into Awards Tables
-INSERT INTO Awards(award_id, theName, presenter, year_of_win, winner_id, winner_type)
+INSERT INTO Awards(award_id, theName, presenter, year_of_win, reciever_id, winner_type)
 VALUES (1, 'Best Film', 'Academy Awards', '2022', 1, 'Film');
 
-INSERT INTO Awards(award_id, theName, presenter, year_of_win, winner_id, winner_type)
+INSERT INTO Awards(award_id, theName, presenter, year_of_win, reciever_id, winner_type)
 VALUES (2, 'Best Actor', 'Oscars Ceremony', '2023', 2, 'Person');
 
-INSERT INTO Awards(award_id, theName, presenter, year_of_win, winner_id, winner_type)
+INSERT INTO Awards(award_id, theName, presenter, year_of_win, reciever_id, winner_type)
 VALUES (3, 'Best Director', 'Academy Awards', '2014', 3, 'Person');
 
 -- Insert Details into Review Table
