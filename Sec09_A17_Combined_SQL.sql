@@ -71,9 +71,15 @@ CREATE TABLE Awards (
   theName VARCHAR2(100) NOT NULL,
   presenter VARCHAR2(100) NOT NULL,
   year_of_win NUMBER,
-  winner_id NUMBER, 
+  receiver_id NUMBER, 
   winner_type VARCHAR2(20) CHECK (winner_type IN ('Person', 'Film')),
   FOREIGN KEY (winner_id, winner_type) REFERENCES PersonFilm(person_film_id, person_film_type)
+);
+
+CREATE TABLE Receiver (
+  receiver_id NUMBER PRIMARY KEY,
+  theName VARCHAR2(50) NOT NULL,
+  theDate DATE,
 );
 
 ------------------------------------
@@ -243,6 +249,18 @@ VALUES (2, 2, 3, "The iconic run of Tom Cruise made this movie epic to watch.", 
 INSERT INTO Review(review_id, user_id, film_id, theDescription, rating, theDate)
 VALUES (3, 1, 1, "Amazing cinematics from Nolan once again. Pristine performance!.", 5, TO_DATE('2023-06-21', 'YYYY-MM-DD'));
 
+-- Insert Details into Receiver Table
+INSERT INTO Receiver(receiver_id, theName, theDate)
+VALUES (1, "Wojak", TO_DATE('2018-03-13', 'YYYY-MM-DD'));
+
+INSERT INTO Receiver(receiver_id, theName, theDate)
+VALUES (2, "Steve", TO_DATE('2019-05-18', 'YYYY-MM-DD'));
+
+INSERT INTO Receiver(receiver_id, theName, theDate)
+VALUES (3, "Wade", TO_DATE('2012-01-11', 'YYYY-MM-DD'));
+
+INSERT INTO Receiver(receiver_id, theName, theDate)
+VALUES (4, "Interstellar", TO_DATE('2023-02-17', 'YYYY-MM-DD'));
 
 
 
