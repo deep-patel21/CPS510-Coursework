@@ -73,7 +73,7 @@ CREATE TABLE Awards (
   year_of_win NUMBER,
   receiver_id NUMBER, 
   winner_type VARCHAR2(20) CHECK (winner_type IN ('Person', 'Film')),
-  FOREIGN KEY (winner_id, winner_type) REFERENCES PersonFilm(person_film_id, person_film_type)
+  FOREIGN KEY (receiver_id) REFERENCES Receiver(receiver_id)
 );
 
 CREATE TABLE Receiver (
@@ -130,7 +130,7 @@ CREATE TABLE TheUser_Creates_Review (
     user_id NUMBER NOT NULL,
     review_id NUMBER NOT NULL,
     PRIMARY KEY (user_id, review_id),
-    FOREIGN KEY (user_id) REFERENCES User(user_id),
+    FOREIGN KEY (user_id) REFERENCES TheUser(user_id),
     FOREIGN KEY (review_id) REFERENCES Review(review_id)
 );
 
@@ -159,7 +159,7 @@ VALUES (3, 'Mission: Impossible - Ghost Protocol', 172, 2011, 3, 'Tom Cruise, Je
 
 -- Insert Details into Actor Table
 INSERT INTO Actor (actor_id, first_name, last_name, birthdate, nationality, filmography)
-VALUES (1, 'Cillian', 'Murphy', TO_DATE('1976-05-25', 'YYYY-MM-DD'), 'Irish', '28 Days Later, The Dark Night, Oppenheimer');
+VALUES (1, 'Cillian', 'Murphy', TO_DATE('1976-05-25', 'YYYY-MM-DD'), 'Irish', '28 Days Later, The Dark Knight, Oppenheimer');
 
 INSERT INTO Actor (actor_id, first_name, last_name, birthdate, nationality, filmography)
 VALUES (2, 'Robert', 'Downey Jr.', TO_DATE('1965-04-04', 'YYYY-MM-DD'), 'American', 'Iron Man 3, Sherlock Holmes, Avengers: Endgame');
