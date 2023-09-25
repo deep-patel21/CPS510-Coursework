@@ -279,7 +279,7 @@ WHERE director_id = 1;
 
 SELECT first_name, last_name
 FROM Actor
-WHERE nationality = "American";
+WHERE nationality = 'American';
 
 
 
