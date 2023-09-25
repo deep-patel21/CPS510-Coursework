@@ -281,6 +281,17 @@ SELECT first_name, last_name
 FROM Actor
 WHERE nationality = 'American';
 
+SELECT name
+FROM Studio
+WHERE location = 'Burbank, California';
+
+SELECT rating
+FROM Review
+WHERE rating = 4;
+
+SELECT email
+FROM TheUser;
+
 
 
 
