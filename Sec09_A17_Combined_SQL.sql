@@ -143,6 +143,11 @@ CREATE TABLE Review_Rates_Film (
     FOREIGN KEY (film_id) REFERENCES Film(film_id)
 );
 
+-----------------------------------------------------------------------------
+---- NOTE: Onwards is the code for many INSERT and SELECT statements,    ----
+----       which the rubric says is OPTIONAL. We have included it here   ----
+----      as it was a part of our testing.                               ----
+-----------------------------------------------------------------------------
 ----------------------------
 -- Update Values in Table --
 ----------------------------
