@@ -1,3 +1,7 @@
+---------------------------------
+-- Sec09 Team 17 Assignment 03 --
+---------------------------------
+
 -------------------------------
 -- Create Tables of Entities --
 -------------------------------
@@ -297,8 +301,10 @@ WHERE rating = 4;
 SELECT email
 FROM TheUser;
 
-
-
+SELECT receiver_id, theName, year_of_win
+FROM Awards
+WHERE year_of_win = '2023';
+ 
 
 
 
