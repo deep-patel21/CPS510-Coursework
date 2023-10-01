@@ -29,7 +29,7 @@ FROM Director
 WHERE EXTRACT(YEAR FROM birthdate) < 1960
 
 -- Associated with PRODUCER TABLE
--- Expected Output: {Edward}, {Furlong}, {Living & Dying, Heart of a Champion, Star Trek: The Next Generation}
+-- Expected Output: {Bryan}, {Burk}, {Living & Dying, Heart of a Champion, Star Trek: The Next Generation}
 SELECT first_name, last_name, filmography
 FROM Producer;
 WHERE nationality = 'American' AND filmography LIKE '%Star Trek%';
