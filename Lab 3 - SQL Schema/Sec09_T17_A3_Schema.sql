@@ -1,3 +1,6 @@
+-------------------------------
+-- Create Tables of Entities --
+-------------------------------
 CREATE TABLE Film (
   film_id NUMBER PRIMARY KEY,
   title VARCHAR2(100) NOT NULL,
@@ -5,7 +8,7 @@ CREATE TABLE Film (
   release_year NUMBER, 
   director_id NUMBER,
   FOREIGN KEY (director_id) REFERENCES Director(director_id),
-  cast VARCHAR2(1000) NOT NULL
+  theCast VARCHAR2(1000) NOT NULL
 );
 
 CREATE TABLE Actor (
@@ -35,7 +38,7 @@ CREATE TABLE Producer (
   filmography CLOB
 );
 
-CREATE TABLE User (
+CREATE TABLE TheUser (
   user_id NUMBER PRIMARY KEY, 
   first_name VARCHAR2(50) NOT NULL, 
   last_name VARCHAR2(50) NOT NULL, 
@@ -46,12 +49,12 @@ CREATE TABLE User (
 
 CREATE TABLE Review (
   review_id NUMBER PRIMARY KEY, 
-  used_id NUMBER, 
+  user_id NUMBER, 
   film_id NUMBER, 
-  description VARCHAR2(500),
+  theDescription CLOB,
   rating NUMBER, 
-  date DATE,
-  FOREIGN KEY (user_id) REFERENCES User(user_id),
+  theDate DATE,
+  FOREIGN KEY (user_id) REFERENCES TheUser(user_id),
   FOREIGN KEY (film_id) REFERENCES Film(film_id)
 );
 
@@ -65,10 +68,77 @@ CREATE TABLE Studio (
 
 CREATE TABLE Awards (
   award_id NUMBER PRIMARY KEY, 
-  name VARCHAR2(100) NOT NULL,
+  theName VARCHAR2(100) NOT NULL,
   presenter VARCHAR2(100) NOT NULL,
-  year NUMBER,
-  winner_id NUMBER, 
+  year_of_win NUMBER,
+  receiver_id NUMBER, 
   winner_type VARCHAR2(20) CHECK (winner_type IN ('Person', 'Film')),
-  FOREIGN KEY (winner_id, winner_type) REFERENCES PersonFilm(person_film_id, person_film_type)
+  FOREIGN KEY (receiver_id) REFERENCES Receiver(receiver_id)
+);
+
+CREATE TABLE Receiver (
+  receiver_id NUMBER PRIMARY KEY,
+  theName VARCHAR2(50) NOT NULL,
+  theDate DATE,
+);
+
+------------------------------------
+-- Create Tables of Relationships --
+------------------------------------
+
+CREATE TABLE Actor_Acts_In_Film (
+  actor_id NUMBER NOT NULL, 
+  film_id NUMBER NOT NULL,
+  PRIMARY KEY (actor_id, film_id),
+  FOREIGN KEY (actor_id) REFERENCES Actor(actor_id),
+  FOREIGN KEY (film_id) REFERENCES Film(film_id)
+);
+
+CREATE TABLE Director_Directs_Film (
+    director_id NUMBER NOT NULL,
+    film_id NUMBER NOT NULL,
+    PRIMARY KEY (director_id, film_id),
+    FOREIGN KEY (director_id) REFERENCES Director(director_id),
+    FOREIGN KEY (film_id) REFERENCES Film(film_id)
+);
+
+CREATE TABLE Producer_Produces_Film (
+    producer_id NUMBER NOT NULL,
+    film_id NUMBER NOT NULL,
+    PRIMARY KEY (producer_id, film_id),
+    FOREIGN KEY (producer_id) REFERENCES Producer(producer_id),
+    FOREIGN KEY (film_id) REFERENCES Film(film_id)
+);
+
+CREATE TABLE Studio_Owns_Film (
+    studio_id NUMBER NOT NULL,
+    film_id NUMBER NOT NULL,
+    PRIMARY KEY (studio_id, film_id),
+    FOREIGN KEY (studio_id) REFERENCES Studio(studio_id),
+    FOREIGN KEY (film_id) REFERENCES Film(film_id)
+);
+
+CREATE TABLE Awards_Given_To_Film (
+    award_id NUMBER NOT NULL,
+    film_id NUMBER NOT NULL,
+    PRIMARY KEY (award_id, film_id),
+    FOREIGN KEY (award_id) REFERENCES Awards(award_id),
+    FOREIGN KEY (film_id) REFERENCES Film(film_id)
+);
+
+CREATE TABLE TheUser_Creates_Review (
+    user_id NUMBER NOT NULL,
+    review_id NUMBER NOT NULL,
+    PRIMARY KEY (user_id, review_id),
+    FOREIGN KEY (user_id) REFERENCES TheUser(user_id),
+    FOREIGN KEY (review_id) REFERENCES Review(review_id)
+);
+
+CREATE TABLE Review_Rates_Film (
+    review_id NUMBER NOT NULL,
+    film_id NUMBER NOT NULL,
+    rating NUMBER,
+    PRIMARY KEY (review_id, film_id),
+    FOREIGN KEY (review_id) REFERENCES Review(review_id),
+    FOREIGN KEY (film_id) REFERENCES Film(film_id)
 );
