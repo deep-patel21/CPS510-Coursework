@@ -3,7 +3,9 @@
 ---------------------------
 
 -- Associated with FILM TABLE
--- Expected Output: Oppenheimer
+-- Expected Output: {Oppenheimer}, {180}, {Christopher Nolan}
+--                  {Terminator 2: Judgement Day}, {137}, {James Cameron}
+--                  {Mission: Impossible - Ghost Protocol}, {172}, {Brad Bird}
 SELECT f.title, f.runtime AS 'runtime (minutes)', CONCAT(d.first_name, ' ', d.last_name) AS director_name
 FROM Film f
 JOIN Director d ON f.director_id = d.director_id
@@ -24,10 +26,12 @@ WHERE nationality = 'American';
 --                  {Brad}, {Bird}, {1957}, {The Incredibles, Ratatouille, Cars}
 SELECT first_name, last_name, birthdate, filmography
 FROM Director
-WHERE EXCTRACT(YEAR FROM birthdate) < 1960
+WHERE EXTRACT(YEAR FROM birthdate) < 1960
 
 -- Associated with PRODUCER TABLE
-
+SELECT first_name, last_name, filmography
+FROM Producer;
+WHERE nationality = 'American' AND filmography LIKE '%Star Trek%';
 
 -- Associated with THEUSER TABLE
 
