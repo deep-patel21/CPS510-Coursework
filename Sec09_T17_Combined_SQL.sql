@@ -345,16 +345,16 @@ WHERE EXTRACT(YEAR FROM birthdate) < 1960;
 -- Associated with PRODUCER TABLE
 -- Expected Output: {Bryan}, {Burk}, {Living & Dying, Heart of a Champion, Star Trek: The Next Generation}
 SELECT first_name, last_name, filmography
-FROM Producer;
+FROM Producer
 WHERE nationality = 'American' AND filmography LIKE '%Star Trek%';
 
 -- Associated with THEUSER TABLE
 -- Expected Output: {Anmol}, {Panchal}, {IwasHuman}
 --                  {Deep}, {Patel}, {Deep Studios}
 --                  {Aryan}, {Patel}, {Rayna}
-SELECT first_name_ last_name, username
+SELECT first_name, last_name, username
 FROM TheUser
-WHERE username LIKE 'Admin%'
+WHERE password LIKE 'Admin%'
 
 -- Associated with REVIEW TABLE
 -- Expected Output: {2}, {Deep Studios}, {Mission: Impossible - Ghost Protocol}, {Iconic film}, {4}
