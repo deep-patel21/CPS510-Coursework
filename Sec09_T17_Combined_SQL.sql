@@ -200,7 +200,7 @@ INSERT INTO Director (director_id, first_name, last_name, birthdate, nationality
 VALUES (1, 'Christopher', 'Nolan', TO_DATE('1970-07-30', 'YYYY-MM-DD'), 'British-American', 'Tenet, Interstellar, Inception');
 
 INSERT INTO Director (director_id, first_name, last_name, birthdate, nationality, filmography)
-VALUES (2, 'James', 'Cameron', TO_DATE('1954-08-16', 'YYYY-MM-DD'), 'Canadian-American', 'Titanic, Avatatr: The Way of Water, Terminator 2: Judgement Day');
+VALUES (2, 'James', 'Cameron', TO_DATE('1954-08-16', 'YYYY-MM-DD'), 'Canadian-American', 'Titanic, Avatar: The Way of Water, Terminator 2: Judgement Day');
 
 INSERT INTO Director (director_id, first_name, last_name, birthdate, nationality, filmography)
 VALUES (3, 'Brad', 'Bird', TO_DATE('1957-09-24', 'YYYY-MM-DD'), 'American', 'The Incredibles, Ratatouille, Cars');
