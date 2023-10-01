@@ -260,16 +260,16 @@ VALUES (3, 1, 1, "Amazing cinematics from Nolan once again. Pristine performance
 
 -- Insert Details into Receiver Table
 INSERT INTO Receiver(receiver_id, theName, theDate)
-VALUES (1, "Harry Potter and The Philosopher's Stone", TO_DATE('2018-03-13', 'YYYY-MM-DD'));
+VALUES (1, 'Harry Potter and The Philosopher''s Stone', TO_DATE('2018-03-13', 'YYYY-MM-DD'));
 
 INSERT INTO Receiver(receiver_id, theName, theDate)
-VALUES (2, "Steve Hamilton", TO_DATE('2019-05-18', 'YYYY-MM-DD'));
+VALUES (2, 'Steve Hamilton', TO_DATE('2019-05-18', 'YYYY-MM-DD'));
 
 INSERT INTO Receiver(receiver_id, theName, theDate)
-VALUES (3, "Dwayne Johnson", TO_DATE('2012-01-11', 'YYYY-MM-DD'));
+VALUES (3, 'Dwayne Johnson', TO_DATE('2012-01-11', 'YYYY-MM-DD'));
 
 INSERT INTO Receiver(receiver_id, theName, theDate)
-VALUES (4, "Interstellar", TO_DATE('2023-02-17', 'YYYY-MM-DD'));
+VALUES (4, 'Interstellar', TO_DATE('2023-02-17', 'YYYY-MM-DD'));
 
 ---------------------------
 -- Simple SELECT Queries --
