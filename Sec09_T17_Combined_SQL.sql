@@ -367,9 +367,13 @@ WHERE r.rating = 4;
 
 -- Associated with STUDIO TABLE
 -- Expected Output: {Warner Bros.}, {David Zaslav}, {Tenet, Inception, Shazam}
-SELECT name, owner, credits
+SELECT 
+  SUBSTR(name, 1, 20) AS name_short,
+  SUBSTR(owner, 1, 20) AS owner_short,
+  SUBSTR(location, 1, 20) AS location_short,
+  credits
 FROM Studio
-WHERE location LIKE '%BURBANK%'
+WHERE location LIKE '%Burbank%';
 
 -- Associated with AWRADS TABLE
 -- Expected Output: {Best Film}, {Academy Awards}, {2022}, {Wojak}
