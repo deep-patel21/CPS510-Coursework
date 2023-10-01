@@ -250,13 +250,13 @@ VALUES (3, 'Best Director', 'Academy Awards', '2014', 3, 'Person');
 
 -- Insert Details into Review Table
 INSERT INTO Review(review_id, user_id, film_id, theDescription, rating, theDate)
-VALUES (1, 3, 2, "This movie was action packed with my favorite action hero Arnold!", 4, TO_DATE('2023-07-03', 'YYYY-MM-DD'));
+VALUES (1, 3, 2, 'This movie was action packed with my favorite action hero Arnold!', 4, TO_DATE('2023-07-03', 'YYYY-MM-DD'));
 
 INSERT INTO Review(review_id, user_id, film_id, theDescription, rating, theDate)
-VALUES (2, 2, 3, "The iconic run of Tom Cruise made this movie epic to watch.", 4, TO_DATE('2023-05-16', 'YYYY-MM-DD'));
+VALUES (2, 2, 3, 'The iconic run of Tom Cruise made this movie epic to watch.', 4, TO_DATE('2023-05-16', 'YYYY-MM-DD'));
 
 INSERT INTO Review(review_id, user_id, film_id, theDescription, rating, theDate)
-VALUES (3, 1, 1, "Amazing cinematics from Nolan once again. Pristine performance!.", 5, TO_DATE('2023-06-21', 'YYYY-MM-DD'));
+VALUES (3, 1, 1, 'Amazing cinematics from Nolan once again. Pristine performance!.', 5, TO_DATE('2023-06-21', 'YYYY-MM-DD'));
 
 -- Insert Details into Receiver Table
 INSERT INTO Receiver(receiver_id, theName, theDate)
