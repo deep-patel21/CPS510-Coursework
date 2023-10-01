@@ -333,9 +333,14 @@ WHERE nationality = 'American';
 -- Associated with DIRECTOR TABLE
 -- Expected Output: {James}, {Cameron}, {1954}, {Titanic, Avatar: The Way of Water, Terminator 2: Judgement Day}
 --                  {Brad}, {Bird}, {1957}, {The Incredibles, Ratatouille, Cars}
-SELECT first_name, last_name, birthdate, filmography
+SELECT 
+  SUBSTR(first_name, 1, 10) AS first_name,
+  SUBSTR(last_name, 1, 10) AS last_name,
+  TO_CHAR(birthdate, 'YYYY-MM-DD') AS birth_date,
+  filmography
 FROM Director
-WHERE EXTRACT(YEAR FROM birthdate) < 1960
+WHERE EXTRACT(YEAR FROM birthdate) < 1960;
+
 
 -- Associated with PRODUCER TABLE
 -- Expected Output: {Bryan}, {Burk}, {Living & Dying, Heart of a Champion, Star Trek: The Next Generation}
