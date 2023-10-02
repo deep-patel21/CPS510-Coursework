@@ -315,9 +315,12 @@ WHERE year_of_win = '2023';
 -- Expected Output: {Oppenheimer}, {180}, {Christopher Nolan}
 --                  {Terminator 2: Judgement Day}, {137}, {James Cameron}
 --                  {Mission: Impossible - Ghost Protocol}, {172}, {Brad Bird}
-SELECT f.title, f.runtime AS RUNTIME, CONCAT(d.first_name, ' ', d.last_name) AS director_name
+SELECT 
+  SUBSTR(f.title, 1, 45) AS shortened_title, 
+  f.runtime AS RUNTIME, 
+  SUBSTR(d.first_name || ' ' || d.last_name, 1, 20) AS director_name 
 FROM Film f
-JOIN Director d ON f.director_id = d.director_id
+JOIN Director d ON f.director_id = d.director_id;
 
 -- Associated with ACTOR TABLE
 -- Expected Output: {Robert}, {Downey Jr.}, {American}
