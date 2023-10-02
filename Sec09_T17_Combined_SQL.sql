@@ -315,7 +315,7 @@ WHERE year_of_win = '2023';
 -- Expected Output: {Oppenheimer}, {180}, {Christopher Nolan}
 --                  {Terminator 2: Judgement Day}, {137}, {James Cameron}
 --                  {Mission: Impossible - Ghost Protocol}, {172}, {Brad Bird}
-SELECT f.title, f.runtime AS 'runtime (minutes)', CONCAT(d.first_name, ' ', d.last_name) AS director_name
+SELECT f.title, f.runtime AS RUNTIME, CONCAT(d.first_name, ' ', d.last_name) AS director_name
 FROM Film f
 JOIN Director d ON f.director_id = d.director_id
 
