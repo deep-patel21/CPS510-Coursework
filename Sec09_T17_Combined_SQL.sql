@@ -371,11 +371,17 @@ WHERE password LIKE 'Admin%'
 -- Associated with REVIEW TABLE
 -- Expected Output: {2}, {Deep Studios}, {Mission: Impossible - Ghost Protocol}, {Iconic film}, {4}
 --                  {3}, {IwasHuman}, {Terminator 2: Judgement Day}, {Amazing Movie}, {4}
-SELECT r.review_id, u.username, f.title AS 'Film Title', r.theDescription AS "Description", r.rating
+SELECT 
+  SUBSTR(r.review_id, 1, 10) AS review_id, 
+  SUBSTR(u.username, 1, 15) AS username, 
+  SUBSTR(f.title, 1, 40) AS Film_Title, 
+  SUBSTR(r.theDescription, 1, 70) AS "Description", 
+  r.rating
 FROM Review r
 JOIN TheUser u ON r.user_id = u.user_id
 JOIN Film f ON r.film_id = f.film_id
-WHERE r.rating = 4;
+WHERE r.rating = 4
+ORDER BY username;
 
 -- Associated with STUDIO TABLE
 -- Expected Output: {Warner Bros.}, {David Zaslav}, {Tenet, Inception, Shazam}
@@ -387,7 +393,7 @@ SELECT
 FROM Studio
 WHERE location LIKE '%Burbank%';
 
--- Associated with AWRADS TABLE
+-- Associated with AWARDS TABLE
 -- Expected Output: {Best Film}, {Academy Awards}, {2022}, {Wojak}
 --                  {Best Director}, {Academy Awards}, {2023}, {Steve}
 SELECT 
