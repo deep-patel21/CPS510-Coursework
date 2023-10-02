@@ -389,10 +389,14 @@ WHERE a.year_of_win > 2014;
 
 
 -- Associated with RECIEVER TABLE
--- Expected Output: {}
-SELECT theName AS "Receiver Name", theDate AS "Receiving Date"
+-- Expected Output: {Steve Hamilton}, {2019-05-18}
+--                  {Interstellar}, {2023-02-17}
+SELECT 
+  SUBSTR(theName, 1, 15) AS "Receiver Name",
+  SUBSTR(TO_CHAR(theDate, 'YYYY-MM-DD'), 1, 12) AS "Receiving Date" 
 FROM Receiver
 WHERE theDate >= TO_DATE('2019-01-01', 'YYYY-MM-DD');
+
 
 
 
