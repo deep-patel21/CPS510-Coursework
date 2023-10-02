@@ -409,12 +409,15 @@ WHERE a.year_of_win > 2014;
 -- Associated with RECIEVER TABLE
 -- Expected Output: {Steve Hamilton}, {2019-05-18}
 --                  {Interstellar}, {2023-02-17}
-SELECT 
-  SUBSTR(theName, 1, 15) AS "Receiver Name",
-  SUBSTR(TO_CHAR(theDate, 'YYYY-MM-DD'), 1, 12) AS "Receiving Date" 
-FROM Receiver
-WHERE theDate >= TO_DATE('2019-01-01', 'YYYY-MM-DD');
-
+SELECT DISTINCT
+  SUBSTR(r.theName, 1, 15) AS "Receiver Name",
+  SUBSTR(TO_CHAR(r.theDate, 'YYYY-MM-DD'), 1, 20) AS "Win Date",
+  SUBSTR(a.theName, 1, 15) AS "Award Name",
+  SUBSTR(a.presenter, 1, 15) AS "Presenter"
+FROM Receiver r
+JOIN Awards a ON r.receiver_id = a.receiver_id
+-- Only want the Best Actor(s) in 2019
+WHERE r.theDate >= TO_DATE('2019-01-01', 'YYYY-MM-DD');
 
 
 
