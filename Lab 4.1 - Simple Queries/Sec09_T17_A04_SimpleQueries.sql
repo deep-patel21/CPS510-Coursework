@@ -28,6 +28,87 @@ SELECT receiver_id, theName, year_of_win
 FROM Awards
 WHERE year_of_win = '2023';
 
+SELECT DISTINCT title, runtime, release_year
+FROM Film
+WHERE runtime >= 170
+ORDER BY runtime DESC;
+
+SELECT first_name, last_name, nationality
+FROM Actor
+WHERE nationality = 'American'
+ORDER BY  first_name; -- Alphabetical
+
+SELECT 
+  SUBSTR(first_name, 1, 10) AS first_name,
+  SUBSTR(last_name, 1, 10) AS last_name,
+  TO_CHAR(birthdate, 'YYYY-MM-DD') AS birth_date,
+  filmography
+FROM Director
+WHERE EXTRACT(YEAR FROM birthdate) < 1960
+ORDER BY last_name;
+
+SELECT 
+    SUBSTR(first_name, 1, 10) AS first_name,
+    SUBSTR(last_name, 1, 10) AS last_name,
+    SUBSTR(nationality, 1, 15) AS nationality,
+    SUBSTR(filmography, 1, 128) AS filmography
+FROM Producer
+-- LIKE tag searches for a director who directed specified flim
+WHERE nationality = 'British' AND filmography LIKE '%Dunkirk%';
+
+SELECT 
+    SUBSTR(first_name, 1, 10) AS first_name,
+    SUBSTR(last_name, 1, 10) AS last_name,
+    SUBSTR(username, 1, 15) AS username,
+    SUBSTR(password, 1, 12) AS password
+FROM TheUser
+-- Searches for all system admins
+WHERE password LIKE 'Admin%'
+ORDER BY password;
+
+SELECT 
+  SUBSTR(name, 1, 20) AS name,
+  SUBSTR(owner, 1, 20) AS owner,
+  SUBSTR(location, 1, 35) AS location,
+  credits
+FROM Studio
+-- Finds all studies not in Burbank, California
+WHERE location NOT LIKE '%Burbank%'
+-- Orders alphabetically
+ORDER BY owner;
+
+SELECT 
+  SUBSTR(a.theName, 1, 15) AS "Award Name",
+  SUBSTR(a.presenter, 1, 21) AS "Presenter",
+  SUBSTR(a.year_of_win, 1, 10) AS "Win Year", 
+  SUBSTR(r.theName, 1, 50) AS "Receiver Title" 
+FROM Awards a
+JOIN Receiver r ON a.receiver_id = r.receiver_id
+WHERE a.year_of_win > 2014;
+
+SELECT 
+  SUBSTR(r.review_id, 1, 10) AS review_id, 
+  SUBSTR(u.username, 1, 15) AS username, 
+  SUBSTR(f.title, 1, 40) AS Film_Title, 
+  SUBSTR(r.theDescription, 1, 70) AS "Description", 
+  r.rating
+FROM Review r
+JOIN TheUser u ON r.user_id = u.user_id
+JOIN Film f ON r.film_id = f.film_id
+WHERE r.rating = 4
+ORDER BY username;
+
+SELECT DISTINCT
+  SUBSTR(r.theName, 1, 15) AS "Receiver Name",
+  SUBSTR(TO_CHAR(r.theDate, 'YYYY-MM-DD'), 1, 20) AS "Win Date",
+  SUBSTR(a.theName, 1, 15) AS "Award Name",
+  SUBSTR(a.presenter, 1, 15) AS "Presenter"
+FROM Receiver r
+JOIN Awards a ON r.receiver_id = a.receiver_id
+-- Only want the Best Actor(s) in 2019
+WHERE r.theDate >= TO_DATE('2019-01-01', 'YYYY-MM-DD');
+
+
 -----------------------------
 -- Advanced SELECT Queries --
 -----------------------------
