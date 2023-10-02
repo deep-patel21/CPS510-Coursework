@@ -166,6 +166,12 @@ VALUES (2, 'Terminator 2: Judgement Day', 137, 1991, 2, 'Arnold Schwarznegger, L
 INSERT INTO Film(film_id, title, runtime, release_year, director_id, theCast)
 VALUES (3, 'Mission: Impossible - Ghost Protocol', 172, 2011, 3, 'Tom Cruise, Jeremy Renner, Simon Pegg');
 
+INSERT INTO Film(film_id, title, runtime, release_year, director_id, theCast)
+VALUES (4, 'Harry Potter and The Prizoner of Azkaban', 139, 2004, 4, 'Daniel Radcliffe, Rupert Grint, Emma Watson');
+
+INSERT INTO Film(film_id, title, runtime, release_year, director_id, theCast)
+VALUES (5, 'Dunkirk', 106, 2017, 1, 'Tom Hardy, Cillian Murphy, Harry Styles');
+
 -- Insert Details into Actor Table
 INSERT INTO Actor (actor_id, first_name, last_name, birthdate, nationality, filmography)
 VALUES (1, 'Cillian', 'Murphy', TO_DATE('1976-05-25', 'YYYY-MM-DD'), 'Irish', '28 Days Later, The Dark Knight, Oppenheimer');
@@ -204,6 +210,9 @@ VALUES (2, 'James', 'Cameron', TO_DATE('1954-08-16', 'YYYY-MM-DD'), 'Canadian-Am
 
 INSERT INTO Director (director_id, first_name, last_name, birthdate, nationality, filmography)
 VALUES (3, 'Brad', 'Bird', TO_DATE('1957-09-24', 'YYYY-MM-DD'), 'American', 'The Incredibles, Ratatouille, Cars');
+
+INSERT INTO Director (director_id, first_name, last_name, birthdate, nationality, filmography)
+VALUES (4, 'Alfonso', 'Cuaron', TO_DATE('1961-11-08', 'YYYY-MM-DD'), 'Mexican', 'Gravity, Roma, A Little Princess');
 
 -- Insert Details into Producer Table
 INSERT INTO Producer (producer_id, first_name, last_name, birthdate, nationality, filmography)
