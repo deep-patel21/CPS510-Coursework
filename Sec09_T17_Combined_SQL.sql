@@ -378,10 +378,15 @@ WHERE location LIKE '%Burbank%';
 -- Associated with AWRADS TABLE
 -- Expected Output: {Best Film}, {Academy Awards}, {2022}, {Wojak}
 --                  {Best Director}, {Academy Awards}, {2023}, {Steve}
-SELECT a.theName AS "Award Name", a.presenter, a.year_of_win AS "Win Year", r.theName AS "Receiver Title"
+SELECT 
+  SUBSTR(a.theName, 1, 15) AS "Award Name",
+  SUBSTR(a.presenter, 1, 21) AS "Presenter",
+  SUBSTR(a.year_of_win, 1, 10) AS "Win Year", 
+  SUBSTR(r.theName, 1, 50) AS "Receiver Title" 
 FROM Awards a
 JOIN Receiver r ON a.receiver_id = r.receiver_id
 WHERE a.year_of_win > 2014;
+
 
 -- Associated with RECIEVER TABLE
 -- Expected Output: {}
