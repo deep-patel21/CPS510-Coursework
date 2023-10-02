@@ -172,6 +172,9 @@ VALUES (4, 'Harry Potter and The Prizoner of Azkaban', 139, 2004, 4, 'Daniel Rad
 INSERT INTO Film(film_id, title, runtime, release_year, director_id, theCast)
 VALUES (5, 'Dunkirk', 106, 2017, 1, 'Tom Hardy, Cillian Murphy, Harry Styles');
 
+INSERT INTO Film(film_id, title, runtime, release_year, director_id, theCast)
+VALUES (6, 'Mission: Impossible - Ghost Protocol', 172, 2011, 3, 'Tom Cruise, Jeremy Renner, Simon Pegg');
+
 -- Insert Details into Actor Table
 INSERT INTO Actor (actor_id, first_name, last_name, birthdate, nationality, filmography)
 VALUES (1, 'Cillian', 'Murphy', TO_DATE('1976-05-25', 'YYYY-MM-DD'), 'Irish', '28 Days Later, The Dark Knight, Oppenheimer');
