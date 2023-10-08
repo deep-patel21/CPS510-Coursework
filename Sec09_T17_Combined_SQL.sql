@@ -419,6 +419,16 @@ JOIN Awards a ON r.receiver_id = a.receiver_id
 -- Only want the Best Actor(s) in 2019
 WHERE r.theDate >= TO_DATE('2019-01-01', 'YYYY-MM-DD');
 
+------------------
+-- Simple VIEWs --
+------------------
+
+-- VIEW for Film attributes, excluding director_id
+CREATE VIEW Film_View_without_Director AS
+SELECT title, runtime, release_year, theCast
+FROM Film
+WHERE release_year > 2003;
+
 
 
 
