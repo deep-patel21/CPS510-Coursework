@@ -486,7 +486,7 @@ SELECT
   SUBSTR(r.theName, 1, 150) AS Receiver_Title
 FROM Awards a
 JOIN Receiver r ON a.receiver_id = r_receiver_id
-WHERE a.year_of_win > 2014;
+WHERE a.year_of_win > 2021;
 
 
 
