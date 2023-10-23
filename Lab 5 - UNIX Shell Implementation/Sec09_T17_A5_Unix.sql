@@ -1,2 +1,0 @@
--- Sample SQL
--- IN UNIX
