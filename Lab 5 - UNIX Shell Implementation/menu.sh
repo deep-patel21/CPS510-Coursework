@@ -1,5 +1,9 @@
 
 #!/bin/sh
+Pause() {
+        read -p "Press any key to continue..."
+}
+
 MainMenu()
 {
         while [ "$CHOICE" != "START" ]
@@ -18,9 +22,11 @@ MainMenu()
                 echo " $IS_SELECTEDM M) View Manual"
                 echo " "
                 echo " $IS_SELECTED1 1) Drop Tables"
-                echo " $IS_SELECTED2 2) Create Tables"
-                echo " $IS_SELECTED3 3) Populate Tables"
-                echo " $IS_SELECTED4 4) Query Tables"
+                echo " $IS_SELECTED2 2) Drop Views"
+                echo " $IS_SELECTED3 3) Create Tables"
+                echo " $IS_SELECTED2 4) Create Views"
+                echo " $IS_SELECTED3 5) Populate Tables"
+                echo " $IS_SELECTED4 6) Query Tables"
                 echo " "
                 echo " $IS_SELECTEDX X) Force/Stop/Kill Oracle DB"
                 echo " "
@@ -36,13 +42,21 @@ MainMenu()
                         Pause
                 elif [ "$CHOICE" == "2" ]
                 then
-                        bash create_tables.sh
+                        bash drop_views.sh
                         Pause
                 elif [ "$CHOICE" == "3" ]
                 then
-                        bash populate_tables.sh
+                        bash create_tables.sh
                         Pause
                 elif [ "$CHOICE" == "4" ]
+                then
+                        bash create_views.sh
+                        Pause
+                elif [ "$CHOICE" == "5" ]
+                then
+                        bash populate_tables.sh
+                        Pause
+                elif [ "$CHOICE" == "6" ]
                 then
                         bash queries.sh
                         Pause
