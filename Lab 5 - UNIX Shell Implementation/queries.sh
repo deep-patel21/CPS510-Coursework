@@ -63,6 +63,14 @@ UNION
 SELECT name AS film_or_studio_name, 'Studio' AS source
 FROM Studio;
 
+--JOINS director name to display the directors who made a film
+SELECT
+  f.title AS,
+  f.runtime AS RUNTIME,
+  d.first_name || ' ' || d.last_name AS DIRECTOR_and_MOVIE
+FROM Film f
+JOIN Director d ON f.director_id = d.director_id
+ORDER BY first_name;
 
 exit;
 EOF
