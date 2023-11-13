@@ -36,7 +36,7 @@ const User = () => {
         </div>
       </div>
       <div>
-        Developed by Deep Patel and Anmol Panchal, 2023
+        Developed by Deep Patel and Anmol Panchal, November 2023
       </div>
     </div>
   );

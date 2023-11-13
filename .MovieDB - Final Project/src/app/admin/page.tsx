@@ -7,6 +7,7 @@ import DropTables from "@/components/DropTables";
 import DropViews from "@/components/DropViews";
 import Queries from "@/components/Queries";
 
+
 const Admin = () => {
   return (
     <div className="font-mono text-green-500 text-center">
@@ -28,6 +29,9 @@ const Admin = () => {
           <DropViews></DropViews>
           <PopulateTables></PopulateTables>
           <div>
+            <button className='mt-11 w-full border border-white hover:bg-green-500 hover:text-white'>Execute Query</button>
+          </div>
+          <div>
             <button className='mt-11 w-full border border-white hover:bg-green-500 hover:text-white'>Logout</button>
           </div>
         </div>
@@ -36,12 +40,12 @@ const Admin = () => {
             <Queries></Queries>
           </div>
           <p id="output">
-            testing
+
           </p>
         </div>
       </div>
       <div>
-        Developed by Deep Patel and Anmol Panchal, 2023
+        Developed by Deep Patel and Anmol Panchal, November 2023
       </div>
     </div>
   );
