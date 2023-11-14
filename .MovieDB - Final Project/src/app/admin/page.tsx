@@ -6,7 +6,7 @@ import PopulateTables from "@/components/PopulateTables";
 import DropTables from "@/components/DropTables";
 import DropViews from "@/components/DropViews";
 import Queries from "@/components/Queries";
-
+import Presets from "@/components/Presets";
 
 const Admin = () => {
   return (
@@ -20,6 +20,13 @@ const Admin = () => {
           height={100}/>
         </div>
         <h1>MovieDB | CPS510 Term Project | Admin Menu</h1>
+        <div className="p-5">
+          <Image 
+          src="/adminLogo.png"
+          alt="logo"
+          width={100}
+          height={100}/>
+        </div>
       </div>
       <div className="flex flex-row border-4 border-black p-10 gap-11">
         <div className="text-[35px] flex flex-col gap-3 p-2 justify-start">
@@ -29,19 +36,20 @@ const Admin = () => {
           <DropViews></DropViews>
           <PopulateTables></PopulateTables>
           <div>
-            <button className='mt-11 w-full border border-white hover:bg-green-500 hover:text-white'>Execute Query</button>
+            <button className='mt-10 w-full border border-white hover:bg-green-500 hover:text-white'>Execute Custom Query</button>
           </div>
           <div>
             <button className='mt-11 w-full border border-white hover:bg-green-500 hover:text-white'>Logout</button>
           </div>
         </div>
         <div className="text-[40px] w-full h-[600px] overflow-y-scroll border border-white p-3">
-          <div className="border border-white">
-            <Queries></Queries>
+          <div className="border border-white flex flex-row gap-11 p-2">
+            <div className="px-[5px]">
+              <Queries></Queries>
+            </div>
+            <Presets></Presets>
           </div>
-          <p id="output">
-
-          </p>
+          <p id="output">testing</p>
         </div>
       </div>
       <div>

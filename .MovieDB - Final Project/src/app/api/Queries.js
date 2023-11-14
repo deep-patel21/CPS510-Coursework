@@ -1,17 +1,28 @@
 const oracledb = require('oracledb');
 
-async function run() {
+async function queries() {
   let connection;
 
   try {
+    oracledb.initOracleClient({ libDir: "d:/instantclient_21_12" });
     connection = await oracledb.getConnection({
       user: 'dcpatel',
       password: '06210050',
-      connectString: 'dcpatel/06210050@oracle.scs.ryerson.ca:1521/orcl',
+      connectString: '(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle.scs.ryerson.ca)(Port=1521))(CONNECT_DATA=(SID=orcl)))',
     });
 
-    const result = await connection.execute('SELECT * FROM Film');
-    res.status(200).json(result.rows);
+    try {
+      const systemTestQuery = await connection.execute('SELECT SYSDATE FROM DUAL');
+      console.log("Rows: ", systemTestQuery.rows);
+      console.log(" ");
+      const query1 = await connection.execute('SELECT f.title AS title, f.runtime AS RUNTIME, d.first_name || \' \' || d.last_name AS DIRECTOR_and_MOVIE FROM Film f JOIN Director d ON f.director_id = d.director_id WHERE runtime > 120 ORDER BY first_name');
+      console.log(query1.rows)
+
+    } catch (err) {
+      console.log(err);
+    }
+   
+    //res.status(200).json(result.rows);
 
   } catch (err) {
     console.error(err);
@@ -26,4 +37,4 @@ async function run() {
   }
 }
 
-run();
+queries();

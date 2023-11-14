@@ -3,12 +3,11 @@
 import React from "react";
 
 const DropTables = () => {
-
-  const handler = async () => {
-    let request = await fetch("/api/DropTables");
-    const data = await request.json();
+  const handler = async () => { 
+    let request = await fetch('/app/api/CreateViews.js')
+    const data = await request.json()
     console.log(data);
-  };
+  }
 
   return (
     <button

@@ -4,7 +4,7 @@ async function run() {
   let connection;
 
   try {
-    await oracledb.initOracleClient({ libDir: "d:/instantclient_21_12" });
+    oracledb.initOracleClient({ libDir: "d:/instantclient_21_12" });
     connection = await oracledb.getConnection({
       user: 'dcpatel',
       password: '06210050',
@@ -148,7 +148,7 @@ async function run() {
          PRIMARY KEY (review_id, film_id),
          FOREIGN KEY (review_id) REFERENCES Review(review_id),
          FOREIGN KEY (film_id) REFERENCES Film(film_id)
-       )`,
+       )`
     ];
 
     const options = {
@@ -165,14 +165,10 @@ async function run() {
     }
 
     console.log('All tables created successfully.');
-
-    // Close the connection only once after all statements are executed
-    await connection.close();
-
   } catch (err) {
     console.error(err);
   } finally {
-    if (connection && connection.getConnectionStatus() === oracledb.CONNECTION_STATUS_CONNECTED) {
+    if (connection) {
       try {
         await connection.close();
       } catch (err) {
