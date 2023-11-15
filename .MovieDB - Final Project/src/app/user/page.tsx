@@ -7,6 +7,7 @@ import DropViews from '@/components/DropViews'
 import PopulateTables from '@/components/PopulateTables'
 import Image from 'next/image'
 import Presets from '@/components/Presets'
+import InputField from '@/components/InputField'
 
 const User = () => {
   return (
@@ -44,8 +45,11 @@ const User = () => {
             </div>
             <Presets></Presets>
           </div>
+          <div className='w-full flex flex-row relative'>
+            <InputField></InputField>
+          </div>
           <p id="output">
-            testing
+            
           </p>
         </div>
       </div>

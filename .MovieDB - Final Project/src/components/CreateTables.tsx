@@ -1,17 +1,28 @@
-import React from 'react'
+"use client";
+
+import React from "react";
 
 const CreateTables = () => {
-
-  const handler = async () =>
-  {
-    let request = await fetch('/app/api/CreateTables.js')
-    const response = await request.json();
-    console.log(response);
-  } 
+  const handler = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/api/CreateTables", {
+        method: "POST",
+      });
+      const data = await response.json();
+      //console.log(data);
+      alert("Successfully created tables!");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
-    <button className='border border-white hover:bg-green-500 hover:text-white'>CreateTables</button>
-  )
-}
-
-export default CreateTables
+    <button
+      className="border border-white hover:bg-green-500 hover:text-white"
+      onClick={handler}
+    >
+      CreateTables
+    </button>
+  );
+};
+export default CreateTables;

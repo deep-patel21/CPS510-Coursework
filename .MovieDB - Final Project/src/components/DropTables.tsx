@@ -1,13 +1,18 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
 const DropTables = () => {
-  const handler = async () => { 
-    let request = await fetch('/app/api/CreateViews.js')
-    const data = await request.json()
-    console.log(data);
-  }
+  const handler = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/DropTables', { method: 'POST' });
+      const data = await response.json();
+      //console.log(data);
+      alert("Successfully dropped tables!");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <button

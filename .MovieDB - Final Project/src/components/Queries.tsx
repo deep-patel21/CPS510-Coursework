@@ -9,7 +9,9 @@ const Queries = () => {
   }
 
   return (
-    <div>Queries</div>
+    <div>
+      Queries
+    </div>
   )
 }
 
