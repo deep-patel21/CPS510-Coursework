@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import CreateTables from "@/components/CreateTables";
 import CreateViews from "@/components/CreateViews";
@@ -46,9 +47,15 @@ const Admin = () => {
             </div>
             <Presets></Presets>
           </div>
-          <div className='w-full flex flex-row relative'>
+          <div className='w-full flex flex-row relative p-3'>
             <InputField></InputField>
           </div>
+          <div className='border border-white flex flex-row 2xl:gap-11 gap-1 p-2'>
+            Output
+          </div>
+          <p id="output" className="text-[30px]">
+          Click on a preset or type your own custom query to see the output here!
+            </p>
         </div>
       </div>
       <div>Developed by Deep Patel and Anmol Panchal, November 2023</div>

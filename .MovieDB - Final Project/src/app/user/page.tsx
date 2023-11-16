@@ -45,11 +45,14 @@ const User = () => {
             </div>
             <Presets></Presets>
           </div>
-          <div className='w-full flex flex-row relative'>
+          <div className='w-full flex flex-row relative p-3'>
             <InputField></InputField>
           </div>
-          <p id="output">
-            
+          <div className='border border-white flex flex-row 2xl:gap-11 gap-1 p-2'>
+            Output
+          </div>
+          <p id="output" className="text-[30px]">
+            Click on a preset or type your own custom query to see the output here!
           </p>
         </div>
       </div>
