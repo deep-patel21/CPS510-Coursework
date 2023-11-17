@@ -3,6 +3,7 @@
 import React from 'react'
 
 const Queries = () => {
+  //ignore handler function, uncalled, unused
   const handler = async () => { 
       try {
         const response = await fetch('http://localhost:3001/api/Query1', { method: 'GET' });

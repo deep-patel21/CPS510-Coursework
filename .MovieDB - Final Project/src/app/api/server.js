@@ -11,6 +11,7 @@ const query1 = require('./query1'); //intentionally lowercase, don't touch
 const query2 = require('./Query2');
 const query3 = require('./Query3');
 const query4 = require('./Query4');
+const querycustom = require('./QueryCustom');
 
 const app = express();
 const port = 3001; //server port is different from frontend
@@ -20,8 +21,7 @@ app.use(cors());
 app.get("/api", (req,res) =>
 {
   res.send("Hello world!")
-
-})
+});
 
 app.post('/api/CreateTables', async (req, res) => {
   try {
@@ -75,7 +75,7 @@ app.post('/api/PopulateTables', async (req, res) => {
 
 app.get('/api/Query1', async (req, res) => {
   try {
-    const result = await query1(); 
+    const result = await query1();
     res.status(200).json(result);
   } catch (err) {
     console.error(err);
@@ -113,6 +113,19 @@ app.get('/api/Query4', async (req, res) => {
   }
 });
 
+app.get('/api/QueryCustom', async (req, res) => {
+  const userQueryInput = req.query.userQueryInput
+  console.log("Query from the User (server.js):", userQueryInput);
+  try {
+    const result = await querycustom(userQueryInput); 
+    res.status(200).json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
