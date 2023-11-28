@@ -1,0 +1,1 @@
+The report is a comprehensive file describing the entire context of the project, from the very ideation, to the planning, to the execution and more. Included are components from all major assignments throughout the semester, as well as additional pieces of information to showcase the features of the database and how the web application we built can be used to carry out DBA tasks.
